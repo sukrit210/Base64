@@ -27,15 +27,16 @@ int main(int argc, char *argv[]){
         
 		int i,j;
         for(i=0;i<4;i++){
+            if(buff[i] == '='){
+                byte[i] = 0;
+            }
             for(j=0;j<64;j++){
                 if(buff[i] == table[j]){
                     byte[i] = j;
                 }
             }
             //printf("byte: %d\n",byte[i]);
-            if(byte[i] == 61){
-                byte[i] = 0;
-            }
+            
         }
         uint32_t byte_set = ((byte[0] << 18) | (byte[1] << 12) | (byte[2] << 6) | (byte[3]));
         uint8_t b1,b2,b3;
